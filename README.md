@@ -1,0 +1,1 @@
+- 画像リスト： main.js > this.pathList

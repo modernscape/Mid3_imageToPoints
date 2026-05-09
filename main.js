@@ -236,7 +236,7 @@ class Particle {
   _setDifussion() {
     gsap.to(this.mesh.material.uniforms.u_ratio, {
       value: 1.0,
-      duration: 1.8,
+      duration: 1.6,
       ease: "power1.inOut",
       repeat: 1,
       yoyo: true,
@@ -250,7 +250,7 @@ class Particle {
     gsap.to(
       {},
       {
-        duration: 4.2,
+        duration: 5.2,
         ease: "none",
         repeat: -1.0,
         // onRepeat: this._setDifussion(),
@@ -270,7 +270,10 @@ class Particle {
   }
 
   onRaf() {
-    if (this.mesh) this.mesh.material.uniforms.u_time.value += 0.001
+    if (this.mesh) {
+      this.mesh.material.uniforms.u_time.value += 0.001
+      this.mesh.rotation.y += 0.005
+    }
   }
 } // Particle
 

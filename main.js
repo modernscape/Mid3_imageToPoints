@@ -1,5 +1,5 @@
 import * as THREE from "three"
-import {OrbitControls} from "three/addons/controls/OrbitControls.js"
+import { OrbitControls } from "three/addons/controls/OrbitControls.js"
 // import { uniform } from 'three/webgpu';
 // import { ThreeMFLoader } from 'three/examples/jsm/Addons.js';
 // import { nextId } from 'three/examples/jsm/libs/tween.module.js';
@@ -36,7 +36,7 @@ function ImagePixel(path, w, h, ratio) {
     }
   }
 
-  return {position, color, alpha}
+  return { position, color, alpha }
 }
 
 /////////////////////////////////////////////////////////////////
@@ -92,8 +92,17 @@ class Stage {
   _setCamera() {
     // 1回のみ
     if (!this.isInitialized) {
-      this.camera = new THREE.PerspectiveCamera(0, 0, this.cameraParam.near, this.cameraParam.far)
-      this.camera.position.set(this.cameraParam.x, this.cameraParam.y, this.cameraParam.z)
+      this.camera = new THREE.PerspectiveCamera(
+        0,
+        0,
+        this.cameraParam.near,
+        this.cameraParam.far,
+      )
+      this.camera.position.set(
+        this.cameraParam.x,
+        this.cameraParam.y,
+        this.cameraParam.z,
+      )
       this.camera.lookAt(this.cameraParam.lookAt)
       this.isInitialized = true
     }
@@ -108,7 +117,10 @@ class Stage {
   }
 
   _setDev() {
-    this.orbitControls = new OrbitControls(this.camera, this.renderer.domElement)
+    this.orbitControls = new OrbitControls(
+      this.camera,
+      this.renderer.domElement,
+    )
 
     this.orbitControls.enableDamping = true
     this.isDev = true
@@ -141,10 +153,11 @@ class Particle {
     // this.pathList = ["./src/img/card_analog.png"]
     // this.pathList = ["./src/img/Red-flankedBluetail.png"]
     this.pathList = [
-      "Red-flankedBluetail.png", //
-      "kawasem.png", //
-      "PasserinaCiris.png", //
-      "PharomachrusMocinno.png", //
+      // "Red-flankedBluetail.png", //
+      // "kawasem.png", //
+      // "PasserinaCiris.png", //
+      // "PharomachrusMocinno.png", //
+      "chocolat.png", //
     ]
     this.imageList = [] // [{ position, color, alpha }]
   }
@@ -176,9 +189,18 @@ class Particle {
   _setMesh() {
     const geometry = new THREE.BufferGeometry()
     const ind = Math.floor(Math.random() * this.imageList.length)
-    const position = new THREE.BufferAttribute(new Float32Array(this.imageList[ind].position), 3)
-    const color = new THREE.BufferAttribute(new Float32Array(this.imageList[ind].color), 3)
-    const alpha = new THREE.BufferAttribute(new Float32Array(this.imageList[ind].alpha), 1)
+    const position = new THREE.BufferAttribute(
+      new Float32Array(this.imageList[ind].position),
+      3,
+    )
+    const color = new THREE.BufferAttribute(
+      new Float32Array(this.imageList[ind].color),
+      3,
+    )
+    const alpha = new THREE.BufferAttribute(
+      new Float32Array(this.imageList[ind].alpha),
+      1,
+    )
     // const position = new THREE.BufferAttribute(new Float32Array(this.imageList[0].position), 3)
     // const color = new THREE.BufferAttribute(new Float32Array(this.imageList[0].color), 3)
     // const alpha = new THREE.BufferAttribute(new Float32Array(this.imageList[0].alpha), 1)
@@ -199,8 +221,8 @@ class Particle {
       fragmentShader: document.getElementById("fragmentShader").textContent,
       transparent: true,
       uniforms: {
-        u_ratio: {type: "f", value: 0.0},
-        u_time: {type: "f", value: 0.0},
+        u_ratio: { type: "f", value: 0.0 },
+        u_time: { type: "f", value: 0.0 },
       },
     })
 

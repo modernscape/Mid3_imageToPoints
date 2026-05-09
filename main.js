@@ -157,7 +157,10 @@ class Particle {
       // "kawasem.png", //
       // "PasserinaCiris.png", //
       // "PharomachrusMocinno.png", //
-      "chocolat.png", //
+      "chocolat_1.png", //
+      "chocolat_2.png", //
+      "chocolat_3.png", //
+      "chocolat_4.png", //
     ]
     this.imageList = [] // [{ position, color, alpha }]
   }

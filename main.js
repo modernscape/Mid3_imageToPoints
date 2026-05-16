@@ -157,6 +157,9 @@ class Particle {
       "kawasem.png", //
       "PasserinaCiris.png", //
       "PharomachrusMocinno.png", //
+      "orchids.png", //
+      "momijibana.png", //
+      "tanabatabana.png", //
       // "chocolat_1.png", //
       // "chocolat_2.png", //
       // "chocolat_3.png", //
